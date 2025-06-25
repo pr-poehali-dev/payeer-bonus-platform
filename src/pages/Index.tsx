@@ -1,15 +1,10 @@
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import Statistics from "@/components/Statistics";
-import CallToAction from "@/components/CallToAction";
-
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Hero />
-      <Features />
-      <Statistics />
-      <CallToAction />
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-2xl font-bold">Главная страница</h1>
+        <p>Здесь будет ваш контент</p>
+      </div>
     </div>
   );
 };

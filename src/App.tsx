@@ -1,24 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navigation from "@/components/Navigation";
-import Index from "@/pages/Index";
-import Pricing from "@/pages/Pricing";
-import FAQ from "@/pages/FAQ";
-import NotFound from "@/pages/NotFound";
 import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+    <div className="min-h-screen bg-white">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-center text-gray-800">
+          Добро пожаловать!
+        </h1>
+        <p className="text-center text-gray-600 mt-4">
+          Готов создать что-то новое. Что будем делать?
+        </p>
       </div>
-    </Router>
+    </div>
   );
 }
 
