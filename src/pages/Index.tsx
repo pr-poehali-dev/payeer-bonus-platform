@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import { Button } from "@/components/ui/button";
+import { useAuth } from "../contexts/AuthContext";
+import { Button } from "../components/ui/button";
 
 const Index = () => {
   const { isAuthenticated, user } = useAuth();
@@ -10,8 +10,12 @@ const Index = () => {
       <div className="max-w-md w-full space-y-8 p-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Добро пожаловать!
+            🐕 Бульдог Кликер
           </h1>
+          <p className="text-gray-600 mb-8">
+            Зарабатывай условные единицы, кликая по бульдогу! Регистрируйся и
+            начинай игру прямо сейчас.
+          </p>
 
           {isAuthenticated ? (
             <div className="space-y-4">
@@ -24,8 +28,14 @@ const Index = () => {
             </div>
           ) : (
             <div className="space-y-4">
-              <p className="text-gray-600 mb-8">
-                Войдите в систему или создайте новый аккаунт
+              <p className="text-gray-600 mb-4">
+                🎮 Кликай по бульдогу и зарабатывай монеты!
+              </p>
+              <p className="text-sm text-gray-500 mb-8">
+                • 500 кликов каждые 30 минут
+                <br />
+                • 1 клик = 1 монета
+                <br />• Отслеживай свой прогресс
               </p>
 
               <div className="space-y-3">

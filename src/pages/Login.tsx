@@ -16,7 +16,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { login } = useAuth();
+  const { login, loginWithTelegram } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,6 +27,19 @@ const Login = () => {
       navigate("/dashboard");
     } else {
       setError("Неверный логин или пароль");
+    }
+  };
+
+  const handleTelegramAuth = () => {
+    // Симуляция Telegram авторизации
+    const mockTelegramData = {
+      id: Math.random().toString(36).substr(2, 9),
+      username: `tg_user_${Date.now()}`,
+      first_name: "Telegram User",
+    };
+
+    if (loginWithTelegram(mockTelegramData)) {
+      navigate("/dashboard");
     }
   };
 
@@ -70,6 +83,27 @@ const Login = () => {
               Войти
             </Button>
           </form>
+
+          <div className="mt-4">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
+                  Или
+                </span>
+              </div>
+            </div>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full mt-4"
+              onClick={handleTelegramAuth}
+            >
+              🚀 Войти через Telegram
+            </Button>
+          </div>
 
           <div className="mt-6 text-center text-sm">
             <span className="text-gray-600">Нет аккаунта? </span>

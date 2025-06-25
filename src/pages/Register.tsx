@@ -14,10 +14,11 @@ import {
 
 const Register = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const { register } = useAuth();
+  const { register, loginWithTelegram } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -39,10 +40,28 @@ const Register = () => {
       return;
     }
 
-    if (register(username, password)) {
+    if (!email || !email.includes("@")) {
+      setError("Введите корректный email");
+      return;
+    }
+
+    if (register(username, password, email)) {
       navigate("/login");
     } else {
-      setError("Пользователь с таким логином уже существует");
+      setError("Пользователь с таким логином или email уже существует");
+    }
+  };
+
+  const handleTelegramAuth = () => {
+    // Симуляция Telegram авторизации
+    const mockTelegramData = {
+      id: Math.random().toString(36).substr(2, 9),
+      username: `tg_user_${Date.now()}`,
+      first_name: "Telegram User",
+    };
+
+    if (loginWithTelegram(mockTelegramData)) {
+      navigate("/dashboard");
     }
   };
 
@@ -65,6 +84,17 @@ const Register = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 required
                 minLength={3}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
 
@@ -99,6 +129,27 @@ const Register = () => {
               Зарегистрироваться
             </Button>
           </form>
+
+          <div className="mt-4">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
+                  Или
+                </span>
+              </div>
+            </div>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full mt-4"
+              onClick={handleTelegramAuth}
+            >
+              🚀 Войти через Telegram
+            </Button>
+          </div>
 
           <div className="mt-6 text-center text-sm">
             <span className="text-gray-600">Уже есть аккаунт? </span>
