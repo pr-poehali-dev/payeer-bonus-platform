@@ -44,13 +44,27 @@ const Pricing = () => {
   return (
     <div className="min-h-screen bg-slate-50 py-12">
       <div className="container mx-auto px-4">
+        {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            Выберите тариф
+            Прозрачные тарифы для вашего бизнеса
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Масштабируйте свой доход с ростом вашего трафика
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
+            Масштабируйте свой доход с ростом вашего трафика. Без скрытых
+            комиссий и переплат.
           </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-md mx-auto">
+            <div className="flex items-center justify-center mb-2">
+              <Icon name="Info" size={20} className="text-blue-600 mr-2" />
+              <span className="font-semibold text-blue-800">
+                Как найти стоимость?
+              </span>
+            </div>
+            <p className="text-sm text-blue-700">
+              Тарифы размещены на этой странице ниже. Выберите план по
+              количеству показов в день.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -103,6 +117,58 @@ const Pricing = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8 text-slate-800">
+            Часто задаваемые вопросы о тарифах
+          </h2>
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <h3 className="font-semibold text-lg mb-2 flex items-center">
+                <Icon
+                  name="DollarSign"
+                  size={20}
+                  className="text-green-500 mr-2"
+                />
+                Где найти актуальные цены?
+              </h3>
+              <p className="text-gray-600">
+                Все актуальные тарифы всегда размещены на этой странице. Цены
+                указаны в долларах США и включают все комиссии сервиса.
+              </p>
+            </div>
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <h3 className="font-semibold text-lg mb-2 flex items-center">
+                <Icon
+                  name="CreditCard"
+                  size={20}
+                  className="text-blue-500 mr-2"
+                />
+                Какие способы оплаты доступны?
+              </h3>
+              <p className="text-gray-600">
+                Принимаем Payeer, банковские карты, криптовалюты. Оплата
+                производится ежемесячно, автоматическое списание.
+              </p>
+            </div>
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <h3 className="font-semibold text-lg mb-2 flex items-center">
+                <Icon
+                  name="RefreshCw"
+                  size={20}
+                  className="text-purple-500 mr-2"
+                />
+                Можно ли изменить тариф?
+              </h3>
+              <p className="text-gray-600">
+                Да, вы можете повысить или понизить тариф в любое время.
+                Изменения вступают в силу с начала следующего расчётного
+                периода.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
